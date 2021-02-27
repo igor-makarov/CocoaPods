@@ -420,6 +420,7 @@ module Pod
     #
     def aggregate_for_dependency(dependency)
       if dependency && dependency.podspec_repo
+        sources_manager.find_or_create_source_with_url(dependency.podspec_repo)
         sources_manager.aggregate_for_dependency(dependency)
       elsif (locked_vertex = @locked_dependencies.vertex_named(dependency.name)) && (locked_dependency = locked_vertex.payload) && locked_dependency.podspec_repo
         sources_manager.aggregate_for_dependency(locked_dependency)
