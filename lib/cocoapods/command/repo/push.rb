@@ -1,6 +1,5 @@
 require 'tempfile'
 require 'fileutils'
-require 'active_support/core_ext/string/inflections'
 
 module Pod
   class Command

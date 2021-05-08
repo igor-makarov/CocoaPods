@@ -1,6 +1,5 @@
 # encoding: utf-8
 
-require 'active_support/core_ext/string/inflections'
 require 'cocoapods/command/spec/create'
 require 'cocoapods/command/spec/lint'
 require 'cocoapods/command/spec/which'

@@ -1,4 +1,3 @@
-require 'active_support/core_ext/string/inflections'
 require 'cocoapods/xcode/framework_paths'
 require 'cocoapods/target/build_settings'
 
@@ -217,7 +216,7 @@ module Pod
           #
           def remove_script_phase_from_target(native_target, phase_name)
             build_phase = native_target.shell_script_build_phases.find { |bp| bp.name && bp.name.end_with?(phase_name) }
-            return unless build_phase.present?
+            return if build_phase.nil?
             native_target.build_phases.delete(build_phase)
           end
 
@@ -253,7 +252,7 @@ module Pod
           #
           def remove_copy_resources_script_phase_from_target(native_target)
             build_phase = native_target.shell_script_build_phases.find { |bp| bp.name && bp.name.end_with?(COPY_PODS_RESOURCES_PHASE_NAME) }
-            return unless build_phase.present?
+            return if build_phase.nil?
             native_target.build_phases.delete(build_phase)
           end
 
