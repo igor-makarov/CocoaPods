@@ -1,4 +1,3 @@
-require 'active_support/core_ext/array/conversions'
 
 module Pod
   class Installer

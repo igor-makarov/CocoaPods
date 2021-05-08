@@ -2,7 +2,6 @@ require 'xcodeproj/workspace'
 require 'xcodeproj/project'
 
 require 'active_support/core_ext/string/inflections'
-require 'active_support/core_ext/array/conversions'
 
 module Pod
   class Installer

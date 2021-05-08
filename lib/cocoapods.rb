@@ -5,7 +5,6 @@ require 'xcodeproj'
 # result in a I18n deprecation warning, we load those here now so that we can
 # get rid of that warning.
 require 'active_support/core_ext/string/inflections'
-require 'active_support/core_ext/array/conversions'
 # TODO: check what this actually does by the time we're going to add support for
 # other locales.
 require 'i18n'
