@@ -19,7 +19,6 @@ require 'mocha-on-bacon'
 require 'pretty_bacon'
 require 'pathname'
 
-require 'active_support/core_ext/string/strip'
 require 'active_support/core_ext/object/deep_dup'
 
 ROOT = Pathname.new(File.expand_path('../../', __FILE__))

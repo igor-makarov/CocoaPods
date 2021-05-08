@@ -1,5 +1,4 @@
 require 'xcodeproj'
-require 'active_support/core_ext/string/strip'
 
 module Pod
   class Command
