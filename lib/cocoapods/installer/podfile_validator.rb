@@ -97,7 +97,7 @@ module Pod
             'Only one is allowed'
         end
 
-        pod_spec_or_path = external_source[:podspec].present? || external_source[:path].present?
+        pod_spec_or_path = external_source[:podspec] || external_source[:path]
         if pod_spec_or_path && specified_downloaders.size > 0
           add_error "The dependency `#{dependency.name}` specifies `podspec` or `path` in combination with other" \
             ' download strategies. This is not allowed'
