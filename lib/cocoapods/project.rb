@@ -1,5 +1,4 @@
 require 'xcodeproj'
-require 'active_support/core_ext/string/inflections'
 
 module Pod
   # The Pods project.
@@ -398,7 +397,13 @@ module Pod
     # @return [String] The preprocessor definition to set for the configuration.
     #
     def defininition_for_build_configuration(name)
-      "POD_CONFIGURATION_#{name.underscore}".gsub(/[^a-zA-Z0-9_]/, '_').upcase
+      name = name.to_s.gsub('::', '/')
+      name.gsub!(/([A-Z\d]+)(?=[A-Z][a-z])|([a-z\d])(?=[A-Z])/) { (Regexp.last_match(1) || Regexp.last_match(2)) << '_' }
+      name.tr!('-', '_')
+      name.gsub!(/[^a-zA-Z0-9_]/, '_')
+      name.upcase!
+
+      "POD_CONFIGURATION_#{name}"
     end
 
     private
