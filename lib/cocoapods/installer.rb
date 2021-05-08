@@ -1,5 +1,6 @@
 require 'fileutils'
 require 'cocoapods/podfile'
+require 'cocoapods-core/ext/string_ext'
 
 module Pod
   # The Installer is responsible of taking a Podfile and transform it in the

@@ -1,6 +1,8 @@
 require 'tempfile'
 require 'fileutils'
 
+require 'cocoapods-core/ext/string_ext'
+
 module Pod
   class Command
     class Repo < Command
