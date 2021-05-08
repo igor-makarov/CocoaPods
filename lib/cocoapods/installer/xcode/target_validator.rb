@@ -104,7 +104,7 @@ module Pod
             # they are integrated with. An error is displayed if the target definition Swift versions collide or none
             # of target definitions specify the `SWIFT_VERSION` attribute.
             if swift_pod_target.spec_swift_versions.empty?
-              swift_target_definitions = swift_pod_target.target_definitions.reject { |target| target.swift_version.blank? }
+              swift_target_definitions = swift_pod_target.target_definitions.reject { |target| [nil, [], ''].include?(target.swift_version) }
               next if swift_target_definitions.uniq(&:swift_version).count == 1
               if swift_target_definitions.empty?
                 "- `#{swift_pod_target.name}` does not specify a Swift version and none of the targets " \

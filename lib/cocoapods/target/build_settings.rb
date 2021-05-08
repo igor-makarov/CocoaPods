@@ -1329,7 +1329,7 @@ module Pod
         #
         define_build_settings_method :target_swift_version, :memoized => true, :frozen => false do
           swift_version = target.target_definition.swift_version
-          swift_version = nil if swift_version.blank?
+          swift_version = nil if ['', []].include?(swift_version)
           Version.new(swift_version)
         end
 
