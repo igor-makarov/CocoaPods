@@ -1,4 +1,3 @@
-require 'active_support/hash_with_indifferent_access'
 
 module Pod
   class Installer
@@ -69,7 +68,7 @@ module Pod
       # @raise  [Informative] if `options` contains any unknown keys.
       #
       def initialize(options = {})
-        options = ActiveSupport::HashWithIndifferentAccess.new(options)
+        options.transform_keys!(&:to_s)
         unknown_keys = options.keys - self.class.all_options.map(&:to_s)
         raise Informative, "Unknown installation options: #{unknown_keys.to_sentence}." unless unknown_keys.empty?
         self.class.defaults.each do |key, default|
@@ -84,7 +83,7 @@ module Pod
       # @return [Hash] the options, keyed by option name.
       #
       def to_h(include_defaults: true)
-        self.class.defaults.reduce(ActiveSupport::HashWithIndifferentAccess.new) do |hash, (option, default)|
+        self.class.defaults.reduce({}) do |hash, (option, default)|
           value = send(option)
           hash[option] = value if include_defaults || value != default
           hash
