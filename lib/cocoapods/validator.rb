@@ -1,4 +1,3 @@
-require 'active_support/core_ext/array'
 
 module Pod
   # Validates a Specification.
