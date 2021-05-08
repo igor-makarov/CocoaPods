@@ -1,5 +1,4 @@
 require 'active_support/core_ext/array'
-require 'active_support/core_ext/string/inflections'
 
 module Pod
   # Validates a Specification.
