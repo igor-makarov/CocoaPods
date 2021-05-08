@@ -212,7 +212,7 @@ module Pod
               script_phase = native_target.shell_script_build_phases.find do |bp|
                 bp.name && bp.name.end_with?(UserProjectIntegrator::TargetIntegrator::COPY_DSYM_FILES_PHASE_NAME)
               end
-              native_target.build_phases.delete(script_phase) if script_phase.present?
+              native_target.build_phases.delete(script_phase) unless script_phase.nil?
               return
             end
 
