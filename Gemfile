@@ -33,7 +33,6 @@ group :development do
 
   gem 'cocoapods-dependencies', '~> 1.0.beta.1'
 
-  gem 'activesupport', '> 5', '< 6' # Pinned < 6 because 6 requires Ruby 2.5.0
   gem 'bacon', :git => 'https://github.com/leahneukirchen/bacon.git'
   gem 'bundler', '~> 2.2'
   gem 'mocha', '< 1.5'
