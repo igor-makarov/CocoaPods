@@ -19,7 +19,7 @@ require 'mocha-on-bacon'
 require 'pretty_bacon'
 require 'pathname'
 
-require 'cocoapods-core/ext/deep_dup'
+require 'cocoapods-core/core_ext/deep_dup'
 
 ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 $:.unshift((ROOT + 'lib').to_s)

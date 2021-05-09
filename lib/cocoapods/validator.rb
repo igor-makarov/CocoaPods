@@ -1,4 +1,4 @@
-require 'cocoapods-core/ext/string_ext'
+require 'cocoapods-core/core_ext/string_ext'
 
 module Pod
   # Validates a Specification.

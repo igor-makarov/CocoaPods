@@ -1,4 +1,4 @@
-require 'cocoapods-core/ext/hash_ext'
+require 'cocoapods-core/core_ext/hash_ext'
 module Pod
   # Provides support for the hook system of CocoaPods. The system is designed
   # especially for plugins. Interested clients can register to notifications by
