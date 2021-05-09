@@ -1,4 +1,3 @@
-require 'active_support/multibyte/unicode'
 
 module Pod
   # Stores the global configuration of CocoaPods.
