@@ -230,7 +230,7 @@ module Pod
         it 'includes sources from source provider plugins' do
           plugin_name = 'test-plugin'
           @hooks_manager.register(plugin_name, :source_provider) do |context, options|
-            source_url = options['sources'].first
+            source_url = options[:sources].first
             return unless source_url
             source = Pod::Source.new(source_url)
             context.add_source(source)
@@ -255,7 +255,7 @@ module Pod
         it 'does not automatically add master spec repo if plugin sources exist' do
           plugin_name = 'test-plugin'
           @hooks_manager.register(plugin_name, :source_provider) do |context, options|
-            source_url = options['sources'].first
+            source_url = options[:sources].first
             return unless source_url
             source = Pod::Source.new(source_url)
             context.add_source(source)

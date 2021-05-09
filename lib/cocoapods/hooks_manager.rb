@@ -1,5 +1,4 @@
-require 'active_support/core_ext/hash/indifferent_access'
-
+require 'cocoapods-core/ext/hash_ext'
 module Pod
   # Provides support for the hook system of CocoaPods. The system is designed
   # especially for plugins. Interested clients can register to notifications by
@@ -118,7 +117,7 @@ module Pod
               block = hook.block
               if block.arity > 1
                 user_options = whitelisted_plugins[hook.plugin_name]
-                user_options = user_options.with_indifferent_access if user_options
+                user_options = user_options.deep_symbolify_all_keys if user_options
                 block.call(context, user_options)
               else
                 block.call(context)

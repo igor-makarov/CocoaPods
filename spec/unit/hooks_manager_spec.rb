@@ -71,7 +71,7 @@ module Pod
 
       it 'passed along user-specified options when the hook block has arity 2' do
         @hooks_manager.register('plugin', :post_install) do |_options, user_options|
-          user_options['key'].should == 'value'
+          user_options[:key].should == 'value'
         end
 
         should.not.raise do
@@ -79,10 +79,9 @@ module Pod
         end
       end
 
-      it 'passes along user-specified options as hashes with indifferent access' do
+      it 'passes along user-specified options as hashes with symbolified keys access' do
         run_count = 0
         @hooks_manager.register('plugin', :post_install) do |_options, user_options|
-          user_options['key'].should == 'value'
           user_options[:key].should == 'value'
           run_count += 1
         end
